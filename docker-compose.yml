@@ -1,0 +1,12 @@
+services:
+  pdf-extractor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pdf-image-extractor:latest
+    container_name: pdf-extractor
+    volumes:
+      - ./input:/app/input
+      - ./output:/app/output
+    working_dir: /app
+    command: ["python", "pdfto3image.py"]
